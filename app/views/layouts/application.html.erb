@@ -11,6 +11,26 @@
   </head>
 
   <body>
+   <%# ----- add these lines here: ----- %>
+	
+    <% if current_seller %>
+      <!-- current_user will return true if a user is logged in -->
+      <%= link_to 'Home', root_path %> | <%= link_to 'Products', products_path%> | <%= link_to 'Log Out', session_path,   data: { "turbo-method": :delete }%> | <%= "Logged in as #{current_seller.email}" %> 
+    <% else %>
+      <!-- not logged in -->
+      <%= link_to 'Home', root_path %> | <%= link_to 'Log In', new_session_path %> or <%= link_to 'Sign Up', new_seller_path %>
+    <% end %>
+    <hr>
+	
+    <%# ----- end of added lines ----- %>
+	
+    <% if notice %>
+      <%= notice %>
+    <% end %>
+	
+    <% if alert %>
+      <%= alert %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
