@@ -10,8 +10,9 @@
       </ul>
     </div>
   <% end %>
-
- <img src="/assets/pic.jpg" srcset="/assets/pic_1024.jpg 1024w, /assets/pic_1980.jpg 1980w" sizes="100vw">
+  <div>
+    <%= form.file_field :images, multiple: true, style: "display: block" %>
+  </div>
 
   <div>
     <%= form.label :title, style: "display: block" %>
