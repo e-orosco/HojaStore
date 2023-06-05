@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :products
+  resources :products do
+    delete :remove_image, on: :member
+  end
   resources :sellers
   resource :session, only:%i[new create destroy]
 

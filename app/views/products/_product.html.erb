@@ -1,6 +1,6 @@
-<div class="card w-96 bg-base-100 shadow-xl ">
+<div class="card w-96 bg-base-100 shadow-xl relative ">
   <div class="h-96 carousel carousel-vertical rounded-box">
-        <% product.images.limit(3).each do |image| %>
+        <% product.images.take(3).each do |image| %>
           <div class="carousel-item h-full mx-auto">
             <figure>  
               <% if image.representable? %>
@@ -10,13 +10,23 @@
           </div> 
         <% end %>  
   </div> 
+  
+
   <div class="card-body">
     <h3 class="text-xl font-bold mb-2"> <%= product.title %> </h3>
     <p class="text-gray-700"> <%= product.description %> </p>
-    <h2> <%= product.price %> </h2>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Buy Now</button>
-    </div>
+    <h2> S/.<%= product.price %> </h2>
+     <% if current_seller %>
+      <div class="card-actions justify-end">
+        <%= link_to "Edit product", edit_product_path(product),class:"btn btn-primary" %>
+      </div>
+      <%= button_to " x", product, method: :delete , form: { data: { turbo_confirm: "Delete Product, Are you sure?" } }, class: "btn bg-red-500 absolute top-0 right-0 " %> 
+    <% else %>
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary">Buy Now</button>
+      </div>
+    <% end %>
   </div>
+    
 </div>
 

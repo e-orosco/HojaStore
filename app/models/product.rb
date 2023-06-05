@@ -3,6 +3,6 @@ class Product < ApplicationRecord
   has_many_attached :images
   
   validates :title, :price, presence: true
-  validates :description, presence: true, length: { maximum: 25 }
+  validates :description, presence: true, length: { maximum: 80 }
   
 end

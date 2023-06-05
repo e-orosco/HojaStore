@@ -1,18 +1,14 @@
 <p style="color: green"><%= notice %></p>
+<% if current_seller %>
+    <div class="py-4">
+      <%= link_to " + New product", new_product_path , class: "btn btn-primary "%>   
+    </div>
+<% end %>
 
-<h1>Products</h1>
 
 <div id="products" class="flex flex-wrap gap-2 justify-normal">
-
   <% @products.each do |product| %>
     <%= render product %>
-    <% if current_seller %>
-      <p>
-        <%= link_to "Show this product", product %>
-      </p>
-    <% end %>
+   
   <% end %>
 </div>
-<% if current_seller %>
-  <%= link_to "New product", new_product_path %>
-<% end %>
