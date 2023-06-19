@@ -1,19 +1,23 @@
-<%# ----- add these lines here: ----- %>
-
-<h1>Log In</h1>
-<%= form_for :login, url:session_path do |f| %>
-  <div>
-    <%= f.label :email, style: "display: block" %>
-    <%= f.text_field :email, autofocus: true %>
-  </div>
-  <div>
-    <%= f.label :password, style: "display: block" %>
-    <%= f.password_field :password %>
-  </div>
-  <br>
-  <div>
-    <%= f.submit "Log In" %>
-  </div>
-<% end %>
+<div class="flex justify-center  h-screen">
+  <div class="w-full max-w-xs">
+    <div class="prose mb-4">
+      <h1>Log In</h1>
+    </div>
   
-<%# ----- end of added lines ----- %>
+  <%= form_for :login, url:session_path do |f| %>
+    <div class="mb-4" >
+      <%= f.label :email, style: "display: block" %>
+      <%= f.text_field :email, autofocus: true, class:"input input-bordered input-primary w-full max-w-xs" %>
+    </div>
+    <div>
+      <%= f.label :password, style: "display: block" %>
+      <%= f.password_field :password, class:"input input-bordered input-primary w-full max-w-xs" %>
+    </div>
+    <br>
+    <div  class="btn btn-primary">
+      <%= f.submit "Log In" %>
+    </div>
+  <% end %>
+
+  </div>
+</div>

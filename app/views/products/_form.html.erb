@@ -8,7 +8,7 @@
               <% end %>
             </figure>
             <% if image.id.present?%>
-                <%= button_to remove_image_product_url(product, image_id: image.id), method: :delete, form: { data: { turbo_confirm: "Delete Image, Are you sure?" } },class:"absolute top-0 right-0  btn btn-square bg-red-500 " do  %>  
+                <%= button_to remove_image_product_url(product, image_id: image.id), method: :delete, form: { data: { turbo_confirm: "¿Acepta eliminar esta imagen?" } },class:"absolute top-0 right-0  btn btn-square bg-red-500 " do  %>  
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
               <% end %>
             <% end %> 

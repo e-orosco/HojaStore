@@ -11,42 +11,41 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+  <div class=" mb-2">
+    <%= form.label :dni,"DNI", style: "display: block" %>
+    <%= form.text_field :dni, class:"input input-bordered input-primary w-full max-w-xs" %>
   </div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
+  <div class=" mb-2">
+    <%= form.label :name, "Nombre", style: "display: block" %>
+    <%= form.text_field :name, class:"input input-bordered input-primary w-full max-w-xs" %>
   </div>
 
-  <div>
-    <%= form.label :password, style: "display: block" %>
-    <%= form.password_field :password %>
-  </div>
-  <div>
-    <%= form.label :password_confirmation, style: "display: block" %>
-    <%= form.password_field :password_confirmation %>
+  <div class="mb-2">
+    <%= form.label :phone,"Número de celular", style: "display: block" %>
+    <%= form.text_field :phone, class:"input input-bordered input-primary w-full max-w-xs" %>
   </div>
 
-
-  <div>
-    <%= form.label :dni, style: "display: block" %>
-    <%= form.text_field :dni %>
+  <div class=" mb-2">
+    <%= form.label :email,"Email", style: "display: block" %>
+    <%= form.text_field :email, class:"input input-bordered input-primary w-full max-w-xs" %>
   </div>
 
-  <div>
-    <%= form.label :gallery_name, style: "display: block" %>
-    <%= form.text_field :gallery_name %>
+  <div class=" mb-2">
+    <%= form.label :password,"Contraseña", style: "display: block" %>
+    <%= form.password_field :password, class:"input input-bordered input-primary w-full max-w-xs" %>
+  </div>
+  <div class="mb-2">
+    <%= form.label :password_confirmation,"Confirmar Contraseña", style: "display: block" %>
+    <%= form.password_field :password_confirmation,class:"input input-bordered input-primary w-full max-w-xs" %>
   </div>
 
-  <div>
-    <%= form.label :phone, style: "display: block" %>
-    <%= form.text_field :phone %>
+  <div class=" mb-2">
+    <%= form.label :gallery_name,"Nombre de tu Galería",style: "display: block" %>
+    <%= form.text_field :gallery_name, class:"input input-bordered input-primary w-full max-w-xs"%>
   </div>
-  <br>
-  <div>
-    <%= form.submit %>
+
+  <div class="btn btn-primary mb-2">
+    <%= form.submit "Guardar" %>
   </div>
 <% end %>

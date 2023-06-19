@@ -1,10 +1,8 @@
-<h1>Editing seller</h1>
-
-<%= render "form", seller: @seller %>
-
-<br>
-
-<div>
-  <%= link_to "Show this seller", @seller %> |
-  <%= link_to "Back to sellers", sellers_path %>
-</div>
+<div class="flex justify-center  h-screen">
+  <div class="w-full max-w-xs">
+    <div class="prose mb-2">  
+      <h1>Editar vendedor</h1>
+    </div>  
+    <%= render "form", seller: @seller %>
+  </div>  
+</div>  

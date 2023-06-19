@@ -1,7 +1,11 @@
 <p style="color: green"><%= notice %></p>
-<% if current_seller %>
+
+
+<% content_for(:gallery_name, @seller.gallery_name ) if @seller%>
+
+<% if current_seller%>
     <div class="py-4">
-      <%= link_to " + New product", new_product_path , class: "btn btn-primary "%>   
+      <%= link_to " + Nuevo Producto", new_product_path , class: "btn btn-primary "%>   
     </div>
 <% end %>
 

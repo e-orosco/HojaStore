@@ -3,8 +3,22 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+
+    if current_seller
+      @products = current_seller.products
+      @seller = Seller.find_by(id: params[:seller_id])
+      
+    elsif params[:seller_id].present?
+      @seller = Seller.find_by(id: params[:seller_id])
+      @products = @seller.products
+    
+    else
+      @products = Product.all
+    end
+    
+
   end
+
 
   # GET /products/1 or /products/1.json
   def show

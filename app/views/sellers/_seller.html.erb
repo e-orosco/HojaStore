@@ -1,27 +1,35 @@
-<div id="<%= dom_id seller %>">
-  <p>
-    <strong>Name:</strong>
-    <%= seller.name %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= seller.email %>
-  </p>
-
-  <p>
-    <strong>Dni:</strong>
-    <%= seller.dni %>
-  </p>
-
-  <p>
-    <strong>Gallery name:</strong>
-    <%= seller.gallery_name %>
-  </p>
-
-  <p>
-    <strong>Phone:</strong>
-    <%= seller.phone %>
-  </p>
-
+<div class="flex justify-center  h-screen">
+  <div class="w-full max-w-xs">
+    <div id="<%= dom_id seller %>" class="mb-2">
+      <div class="prose mb-2">  
+        <h1>Datos de Usuario</h1>
+      </div> 
+      <p>
+        <strong>Nombre:</strong>
+        <%= seller.name %>
+      </p>
+      <p>
+        <strong>Email:</strong>
+        <%= seller.email %>
+      </p>
+      <p>
+        <strong>DNI:</strong>
+        <%= seller.dni %>
+      </p>
+      <p>
+        <strong>Nombre de galería:</strong>
+        <%= seller.gallery_name %>
+      </p>
+      <p>
+        <strong>Número de celular:</strong>
+        <%= seller.phone %>
+      </p>
+      <p class="link link-primary">
+        <%= link_to "Mis Productos", seller_products_path(seller) %>
+      </p>
+      <p class="link link-primary">
+        <%= link_to "Editar", edit_seller_path(@seller) %>
+      </p>
+    </div>
+  </div>
 </div>
