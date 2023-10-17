@@ -3,14 +3,11 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-
-    if current_seller
-      @products = current_seller.products
-      @seller = Seller.find_by(id: params[:seller_id])
       
-    elsif params[:seller_id].present?
+    if params[:seller_id].present?
       @seller = Seller.find_by(id: params[:seller_id])
       @products = @seller.products
+
     
     else
       @products = Product.all
@@ -31,6 +28,9 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+    if current_seller != @product.seller
+      redirect_to products_path, notice: "Recuerda: ¡Solo puedes editar tus productos!"
+    end  
   end
 
   # POST /products or /products.json
