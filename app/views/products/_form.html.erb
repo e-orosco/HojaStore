@@ -33,22 +33,30 @@
       <%= form.file_field :images, multiple: true, style: "display: block" %>
       
     <div>
-      <%= form.label :title, style: "display: block" %>
+      <%= form.label :title, "Título", style: "display: block" %>
       <%= form.text_field :title %>
     </div>
 
     <div>
-      <%= form.label :description, style: "display: block" %>
+      <%= form.label :description, "Descripción", style: "display: block" %>
       <%= form.text_field :description %>
     </div>
 
     <div>
-      <%= form.label :price, "Price (S/.)", style: "display: block" %>
-      <%= form.text_field :price %>
+      <%= form.label :currency, "Moneda" , style: "display: block" %>
+      <%= form.select :currency, Product::CURRENCIES  %>
     </div>
+
+    <div>
+      <%= form.label :price, "Precio", style: "display: block" %>
+      <%= form.text_field :price %>
+      
+    </div>
+   
+
     <br>
     <div>
-      <%= form.submit class: "btn btn-primary" %>
+      <%= form.submit "Guardar", class: "btn btn-primary" %>
     </div>   
   <% end %>
   

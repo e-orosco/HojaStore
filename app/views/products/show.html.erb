@@ -1,11 +1,12 @@
-<p style="color: green"><%= notice %></p>
+<div class="space-y-2">
+  <p style="color: green"><%= notice %></p>
+  <div class=" max-w-sm">
+    <%= render @product %>
+  </div>
 
-<%= render @product %>
-
-<div>
+  
   <% if current_seller %>
-  <%= link_to "Edit this product", edit_product_path(@product) %> |
-  <%= link_to "Back to products", products_path %>
-  <%= button_to "Destroy this product", @product, method: :delete %>
+  <%= link_to "Ver Productos", products_path, class: "btn bg-secondary" %>
   <% end %>
+  
 </div>

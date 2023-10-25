@@ -1,4 +1,4 @@
-<div class="card w-96 bg-base-100 shadow-xl relative ">
+<div class="card  bg-base-100 shadow relative border border-neutral-100">
   <div class="h-96 carousel carousel-hotizontal rounded-box">
         <% product.images.take(3).each do |image| %>
           <div class="carousel-item w-full mx-auto">
@@ -15,7 +15,8 @@
   <div class="card-body">
     <h3 class="text-xl font-bold mb-2"> <%= product.title %> </h3>
     <p class="text-gray-700"> <%= product.description %> </p>
-    <h2> S/.<%= product.price %> </h2>
+    <h2> <%= currency_to_symbol(product.currency) %>  <%= product.price %> </h2>
+    
       <% if current_seller == product.seller%>
       <div class="card-actions justify-end">
         <%= link_to "Editar", edit_product_path(product),class:"btn btn-primary" %>
@@ -31,4 +32,3 @@
   </div>
   
 </div>
-
