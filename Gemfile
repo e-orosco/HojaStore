@@ -9,8 +9,10 @@ gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-# Use mysql as the database for Active Record
-gem "mysql2", "~> 0.5"
+# Use Postgresql as the database for Active Record
+gem "pg"
+
+gem 'textacular', '~> 5.0'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
@@ -74,3 +76,5 @@ end
 gem "bcrypt", "~> 3.1"
 
 gem "tailwindcss-rails", "~> 2.0"
+
+gem "pundit", "~> 2.3"

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TheBox</title>
+    <title>HojaStore</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -17,7 +17,7 @@
           <%- if content_for?(:gallery_name) %>
             <%= yield :gallery_name %>
           <% else %>
-            <%= link_to 'TheBox', root_path, class:"btn btn-ghost normal-case text-xl"%>  
+            <%= link_to 'HojaStore', root_path, class:"btn btn-ghost normal-case text-xl"%>  
           <% end %>           
         </div>
         <div class="space-x-6 ">
