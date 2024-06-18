@@ -1,29 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
-
 <% content_for(:gallery_name, @seller.gallery_name ) if @seller%>
 
-<% content_for(:products_search) do %>
-  <div class="form-control space-x-6">
-    <%= form_tag search_path, method: :get do   %>
-      <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto " name="palabra" />
-    <% end %>  
-  </div>
-<% end %>
-
-<% if current_seller%>
-    <div class="py-4">
-      <%= link_to " + Nuevo Producto", new_product_path , class: "btn btn-primary "%>   
-    </div>
-<% end %>
+  <% if current_seller%>
+      <div class="py-4">
+        <%= link_to " + Nuevo Producto", new_product_path , class: "btn btn-primary "%>   
+      </div>
+  <% end %>
 
 
 <div id="products" class="grid md:grid-cols-3 gap-4">
   <% @products.each do |product| %>
-    <%= render product %>
+    <%= render product %>   
   <% end %>
+
   <% if @products.count == 0 %>
     <%="No hay productos creados, por favor cree un nuevo producto."%>
-    
   <% end %>
+
 </div>

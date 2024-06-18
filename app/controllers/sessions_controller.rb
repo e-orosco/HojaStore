@@ -20,8 +20,8 @@ class SessionsController < ApplicationController
         redirect_to seller_path(seller), notice: 'Successfully logged in!'
       else
         # if email or password incorrect, re-render login page:
-        flash.now.alert = "Incorrect email or password, try again."
-        render :new
+        flash.now.alert= "Incorrect email or password, try again."
+        render :new, status: :unprocessable_entity
       end
     end
   

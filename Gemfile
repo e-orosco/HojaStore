@@ -11,7 +11,7 @@ gem "sprockets-rails"
 
 # Use Postgresql as the database for Active Record
 gem "pg"
-
+gem 'pg_search'
 gem 'textacular', '~> 5.0'
 
 # Use the Puma web server [https://github.com/puma/puma]

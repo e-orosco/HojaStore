@@ -1,18 +1,9 @@
-<% content_for(:products_search) do %>
-  <div class="form-control space-x-6">
-    <%= form_tag search_path, method: :get do   %>
-      <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto " name="palabra" />
-    <% end %>  
-  </div>
-<% end %>
-
 <div id="products" class="grid md:grid-cols-3 gap-4">
   <% @products.each do |product| %>
     <%= render product %>
   <% end %>
   <% if @products.count == 0 %>
-    <%="No hay resultados para tu busqueda,
-     intenta buscar el producto con su nombre en singular o plural, de lo contrario el producto no está disponible."%>
+    <%= flash = "No hay resultados para tu busqueda, intenta con otro producto."%>
     
   <% end %>
 </div>
