@@ -12,7 +12,7 @@ servers:
     options:
       "add-host": host.docker.internal:host-gateway
     labels:
-      traefik.http.routers.veci.rule: Host(hojastore.softwarebajodemanda.com)
+      traefik.http.routers.hojastore.rule: Host(hojastore.softwarebajodemanda.com)
  
 # Credentials for your image host.
 registry:
