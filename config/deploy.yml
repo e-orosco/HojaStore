@@ -24,7 +24,7 @@ registry:
 # Inject ENV variables into containers (secrets come from .env).
 env:
   secret:
-    - DATABASE_PASSWORD
+    - POSTGRES_PASSWORD
     - RAILS_MASTER_KEY
   clear:
     RAILS_SERVE_STATIC_FILES: true
