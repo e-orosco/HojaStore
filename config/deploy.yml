@@ -9,10 +9,6 @@ servers:
   web:
     hosts:
       - 192.168.0.10
-    options:
-      "add-host": host.docker.internal:host-gateway
-    labels:
-      traefik.http.routers.hojastore.rule: Host(`hojastore.softwarebajodemanda.com`)
  
 # Credentials for your image host.
 registry:
@@ -32,62 +28,32 @@ env:
     - RAILS_MASTER_KEY
   clear:
     RAILS_SERVE_STATIC_FILES: true
-#   clear:
-#     DB_HOST: 192.168.0.2
+    POSTGRES_HOST: hojastore-db
+    TZ: America/Lima
 
-# Use a different ssh user than root
-# ssh:
-#   user: ccastillo
+accessories:
+  db:
+    image: postgres:14
+    host: 192.168.0.10
+    env:
+      clear:
+        POSTGRES_USER: hojastore
+        POSTGRES_DB: hojastore_production
+      secret:
+        - POSTGRES_PASSWORD
+    directories:
+      - data:/var/lib/postgresql/data
 
-# Configure builder setup.
-# builder:
-#   args:
-#     RUBY_VERSION: 3.2.0
-#   secrets:
-#     - GITHUB_TOKEN
-#   remote:
-#     arch: amd64
-#     host: ssh://app@192.168.0.1
 builder:
-  remote:
-    arch: arm64
-    host: ssh://root@192.168.0.10
-
-# Use accessory services (secrets come from .env).
-# accessories:
-#   db:
-#     image: mysql:8.0
-#     host: 192.168.0.2
-#     port: 3306
-#     env:
-#       clear:
-#         MYSQL_ROOT_HOST: '%'
-#       secret:
-#         - MYSQL_ROOT_PASSWORD
-#     files:
-#       - config/mysql/production.cnf:/etc/mysql/my.cnf
-#       - db/production.sql.erb:/docker-entrypoint-initdb.d/setup.sql
-#     directories:
-#       - data:/var/lib/mysql
-#   redis:
-#     image: redis:7.0
-#     host: 192.168.0.2
-#     port: 6379
-#     directories:
-#       - data:/data
-
-# Configure custom arguments for Traefik
-# traefik:
-#   args:
-#     accesslog: true
-#     accesslog.format: json
-traefik:
-  host_port: 8080
-# Configure a custom healthcheck (default is /up on port 3000)
-# healthcheck:
-#   port: 3001
+  arch: arm64
+  remote: ssh://root@192.168.0.10
 
 asset_path: /rails/public/assets
 
 volumes:
   - "storage_hojastore:/rails/storage/"
+
+proxy:
+  host: hojastore.softwarebajodemanda.com
+  ssl: false
+  app_port: 3000

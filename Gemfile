@@ -78,3 +78,5 @@ gem "tailwindcss-rails", "~> 2.0"
 gem "pundit", "~> 2.3"
 
 gem "jsbundling-rails", "~> 1.3"
+
+gem "kamal", "~> 2.5"
